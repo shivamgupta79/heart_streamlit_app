@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+scikit-learn
+xgboost
+joblib
+shap
+matplotlib
+seaborn
+python-dotenv
+sqlalchemy
