@@ -1,0 +1,6 @@
+{
+  "version": "v1.0",
+  "saved_at": "2025-11-29T12:00:00Z",
+  "notes": "XGBoost tuned with SMOTE",
+  "expected_columns": ["age","sex","cp", ...]
+}
