@@ -1,0 +1,17 @@
+import joblib
+# assume rs_xgb.best_estimator_ is the final pipeline or estimator
+# Recommended: create a Pipeline with preprocessing + final estimator, e.g.:
+from sklearn.pipeline import Pipeline
+# pipeline_preproc is something that transforms raw dataframe columns to numeric array (encoders, imputer, etc.)
+pipeline = Pipeline([
+    # ('preproc', your_preprocessing_transformer),
+    # ('clf', rs_xgb.best_estimator_)
+])
+
+# If you already have X_train encoders etc, build them into pipeline and fit them
+pipeline.fit(X_train_res, y_train_res)
+joblib.dump(pipeline, "models/model_pipeline.joblib")
+# Write metadata
+import json
+meta = {"version":"v1.0", "saved_at":"2025-11-29T12:00:00Z", "notes":"tuned xgboost + smote", "expected_columns": list(X_train.columns)}
+with open("models/model_metadata.json","w") as f: json.dump(meta, f)
